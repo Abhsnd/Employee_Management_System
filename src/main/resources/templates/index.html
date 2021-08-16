@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Signin Template · Bootstrap v4.6</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" th:action="@{/user/login}">
+      <img class="mb-4" th:src="@{/image/bootstrap-solid.svg}" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+
+      <!-- 如果msg不为空，则显示信息 -->
+      <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
+      <input type="username" name="username" id="inputEmail" class="form-control" th:placeholder="#{login.username}" required autofocus>
+      <input type="password" name="password" id="inputPassword" class="form-control" th:placeholder="#{login.password}" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> [[#{login.remember}]]
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">[[#{login.btn}]]</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+      <a class="btn btn-sm" th:href="@{/index.html(language='zn_CN')}">中文</a>
+      <a class="btn btn-sm" th:href="@{/index.html(language='en_US')}">English</a>
+    </form>
+  </body>
+</html>
